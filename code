@@ -1,0 +1,123 @@
+import java.util.Objects;
+import java.util.Scanner;
+
+public class formasgeo {
+    private static Scanner sc;
+
+    
+    public static void main(String [] args){
+
+    boolean retangulo = false, circulo = false, quadrado = false, sair = false, triangulo = false;   
+        
+    System.out.println("---------------------------------------");
+    System.out.println("| Escolha uma forma geométrica dentre |");
+    System.out.println("+-------------------------------------+");
+    System.out.println("| 1 - Retangulo                       |");
+    System.out.println("| 2 - Circulo                         |");
+    System.out.println("| 3 - Quadrado                        |");
+    System.out.println("| 4 - Triangulo                       |");
+    System.out.println("| 0 - Sair                            |");
+    System.out.println("+-------------------------------------+");
+    
+    Scanner input = new Scanner(System.in);
+    sc = new Scanner(System.in);	
+    
+    String escolhaDoUsuario = new String();
+    escolhaDoUsuario = input.next();
+    
+        switch (escolhaDoUsuario) {
+            case "0" -> sair = true;
+            case "1" -> retangulo = true;
+            case "2" -> circulo = true;
+            case "3" -> quadrado = true;
+            case "4" -> triangulo = true;
+            default -> {
+            }
+        }
+    
+    
+    if(retangulo){
+        Double Base, Altura, Perimetro, Area;
+        // começando codigo do retangulo    
+        System.out.println("Informe o valor de Base: ");        
+        Base = input.nextDouble();
+        System.out.println("Informe o valor da altura: ");
+        Altura = input.nextDouble();
+        //calculai-vos
+        Area = (Base * Altura);
+        Perimetro = 2*(Base + Altura);
+        System.out.println("A area do retangulo é:" +Area);
+        System.out.println("O perimetro do retangulo é:" +Perimetro);
+        input.close();
+    }
+    if (circulo){   
+        Double Raio, Perimetro, Area;
+        //calculation once again boy
+        System.out.println("Informe o valor do raio: ");
+        Raio = input.nextDouble();
+        Perimetro = 2 * 3.14 * Raio;
+        Area = 3.14 * (Raio*Raio);
+        System.out.println("A area do circulo é: " +Area);
+        System.out.println("O perimetro do circulo é: " +Perimetro);
+        input.close();
+    }
+    if (sair){
+        System.out.println("Te vejo na próxima!");
+    }    
+    if (quadrado){
+        Double Lado, Perimetro, Area;
+        //calculation once once again
+        System.out.println("informe o valor do lado: ");
+        Lado = input.nextDouble();
+        Perimetro = 4 * Lado;
+        Area = Lado * Lado;
+        System.out.println("A area do quadrado Ã©: " +Area);
+        System.out.println("O perimetro do quadrado Ã©:" +Perimetro);
+        input.close();
+    }
+    if (triangulo){
+	Double lado1, lado2, lado3;
+        System.out.println("Informe os 3 lados do triangulo");
+	lado1 = sc.nextDouble();
+	lado2 = sc.nextDouble();	
+	lado3 = sc.nextDouble();	   
+        //checando valores dos lados//começar as formulas para calcular.
+        if (Objects.equals(lado1, lado2) && Objects.equals(lado2, lado3))	
+            {
+            Double altura, base, area, perimetro;
+	    System.out.println("Informe a altura do triangulo");
+	    altura = input.nextDouble();
+	    System.out.println("Informe a base do triangulo");
+	    base = input.nextDouble();
+	    area = base * altura / 2;
+	    perimetro = 3 * lado1;
+	    System.out.println("Area do equilátero: " +area);
+	    System.out.println("Perimetro do equilátero: " +perimetro);	  
+        }
+        else if (!Objects.equals(lado1, lado2) && !Objects.equals(lado2, lado3) && !Objects.equals(lado1, lado3))
+        {   
+            Double altura, base, area, perimetro;
+            System.out.println("Informe a altura do triangulo");
+            altura = input.nextDouble();
+            System.out.println("Informe a base do triangulo");
+            base = input.nextDouble();
+            area = base * altura / 2;
+            perimetro = lado1 + lado2 + lado3;
+            System.out.println("Area do escaleno: " +area);
+            System.out.println("Perimetro do escaleno: " +perimetro);
+        }
+        else
+        {
+            Double altura, base, area, perimetro;
+            System.out.println("Informe a altura do triangulo");
+            altura = input.nextDouble();
+            System.out.println("Informe a base do triangulo");
+            base = input.nextDouble();
+            area = base * altura / 2;
+            perimetro = lado1 + lado2 + lado3;
+            System.out.println("Area do isósceles: " +area);
+            System.out.println("Perimetro do isósceles: " +perimetro);	    
+       }
+     }
+   }    
+ }        
